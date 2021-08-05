@@ -1,0 +1,16 @@
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Shopping system.exe.config
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Shopping system.exe
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Shopping system.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.csprojAssemblyReference.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\MainWindow.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\App.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system_MarkupCompile.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system_MarkupCompile.lref
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\MainWindow.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.g.resources
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping_system.Properties.Resources.resources
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.csproj.GenerateResource.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.csproj.CoreCompileInputs.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.exe
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\GeneratedInternalTypeHelper.g.cs

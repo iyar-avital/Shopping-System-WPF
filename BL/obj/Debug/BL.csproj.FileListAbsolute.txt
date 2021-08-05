@@ -1,0 +1,14 @@
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\BL.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\BL.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\BE.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\DAL.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\EntityFramework.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\BE.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\DAL.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\DAL.dll.config
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\bin\Debug\EntityFramework.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\obj\Debug\BL.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BL\obj\Debug\BL.pdb

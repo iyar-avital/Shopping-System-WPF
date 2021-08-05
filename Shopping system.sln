@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping system", "Shopping system\Shopping system.csproj", "{B4670494-CE31-4291-9126-26ECD4F7B8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE", "BE\BE.csproj", "{845F8312-0730-4454-AB72-9F339D80CB9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{104FCEA2-B37B-42A9-9B48-2A0F4D57024E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{1CADB104-8CEB-4086-B60D-AE83A6252517}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4670494-CE31-4291-9126-26ECD4F7B8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4670494-CE31-4291-9126-26ECD4F7B8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4670494-CE31-4291-9126-26ECD4F7B8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4670494-CE31-4291-9126-26ECD4F7B8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845F8312-0730-4454-AB72-9F339D80CB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845F8312-0730-4454-AB72-9F339D80CB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845F8312-0730-4454-AB72-9F339D80CB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845F8312-0730-4454-AB72-9F339D80CB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104FCEA2-B37B-42A9-9B48-2A0F4D57024E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104FCEA2-B37B-42A9-9B48-2A0F4D57024E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104FCEA2-B37B-42A9-9B48-2A0F4D57024E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104FCEA2-B37B-42A9-9B48-2A0F4D57024E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CADB104-8CEB-4086-B60D-AE83A6252517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CADB104-8CEB-4086-B60D-AE83A6252517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CADB104-8CEB-4086-B60D-AE83A6252517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CADB104-8CEB-4086-B60D-AE83A6252517}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D7C36CF-816F-4CF3-AB1F-9F71549666C2}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,14 @@
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\DAL.dll.config
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\DAL.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\DAL.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\BE.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\EntityFramework.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\BE.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\EntityFramework.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.pdb
