@@ -95,9 +95,16 @@ namespace BL
             try
             {
                 IDAL dal = new DalIMP();
-                List<Product> products = dal.getProducts(p => p.pid == product.pid);
-                if (products.Count() != 0)
-                    throw new Exception("מוצר זה כבר קיים במערכת");
+                List<Product> products = new List<Product>();
+                try
+                {
+                    products = dal.getProducts(p => p.pid == product.pid);
+                }
+                catch (Exception)
+                {
+                    if (products.Count() != 0)
+                        throw new Exception("מוצר זה כבר קיים במערכת");
+                }      
                 dal.addProduct(product);
             }
             catch (Exception ex)
@@ -193,6 +200,39 @@ namespace BL
 
         #endregion
 
+        #region apriori 
+
+        public List<List<Product>> getListProductByID()
+        {
+            IDAL dal = new DalIMP();
+            List<Costumer> costumers = dal.getCostumers();
+            List<Purchase> purchases = new List<Purchase>();
+            List<Product> products;
+            List<List<Product>> listProducts = new List<List<Product>>();
+            foreach (var costumer in costumers)
+            {
+                purchases = dal.getPurchaseForCostumer(costumer.cid);
+                products = new List<Product>();
+                for (int i = 0; i < purchases.Count; i++)
+                {
+                    products.Add(dal.getProduct(purchases[i].prid));
+                    products = products.Distinct().ToList();
+                }
+                listProducts.Add(products);
+            }
+            return listProducts;
+        }
+
+        public List<AssociationRule> GetAssociationRules()
+        {
+            IBL bl = new BlIMP();
+            List<List<Product>> listProducts = getListProductByID();
+            Apriori a = new Apriori(0.3, listProducts);//Treshold = 0.3 
+            List<AssociationRule> associationRules = a.getRules();
+            return associationRules;
+        }
+        #endregion
+
         #region account
         public void SignIn(string mail, string pass)
         {
@@ -202,7 +242,7 @@ namespace BL
                 Costumer costumer = dal.getCostumers(c => c.mail == mail).FirstOrDefault();
                 if (costumer == null)
                     throw new Exception("כתובת המייל לא זוהתה במערכת. אנא בדוק אותה או בצע הרשמה");
-                else if (costumer == null || pass != costumer.password)
+                else if (pass != costumer.password)
                     throw new Exception("סיסמה שגויה, נסה שנית");
             }
             catch (Exception ex)
@@ -210,6 +250,7 @@ namespace BL
                 throw ex;
             }
         }
+
         public void SignUp(Costumer _costumer)
         {
             IDAL dal = new DalIMP();
@@ -279,6 +320,20 @@ namespace BL
             smtp.Send(mail);
         }
 
+
+        #endregion
+
+        #region fireBaseStorage 
+        public string[] GetQRDetails(string QrUML)
+        {
+            IDAL dal = new DalIMP();
+            return dal.GetQRDetails(QrUML);
+        }
+        public void uploadToFB(string imgUML, Product product, string nameToStorage)
+        {
+            IDAL dal = new DalIMP();
+            dal.uploadToFB(imgUML, product, nameToStorage);
+        }
 
         #endregion
 

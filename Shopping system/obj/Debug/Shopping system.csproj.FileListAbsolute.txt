@@ -1,16 +1,69 @@
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Shopping system.exe.config
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Shopping system.exe
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Shopping system.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\BE.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\BL.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\DAL.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\EntityFramework.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\MaterialDesignColors.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\BE.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\BL.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\DAL.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\DAL.dll.config
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\EntityFramework.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\MaterialDesignColors.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.csprojAssemblyReference.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\MainWindow.baml
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\MainWindow.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\ChartOFPriceUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\HistoryByPriceUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\HistoryByProductUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\HistoryByStoreUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\LoginUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\ShoppingDataUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\SignupUC.g.cs
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\App.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system_MarkupCompile.cache
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system_MarkupCompile.lref
-C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\MainWindow.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\App.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\ChartOFPriceUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\HistoryByPriceUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\HistoryByProductUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\HistoryByStoreUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\LoginUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\ShoppingDataUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\SignupUC.baml
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.g.resources
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping_system.Properties.Resources.resources
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.csproj.GenerateResource.cache
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.csproj.CoreCompileInputs.cache
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.csproj.CopyComplete
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.exe
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\Shopping system.pdb
-C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\LiveCharts.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\LiveCharts.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\LiveCharts.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\SelectionUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\SelectionUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\AssocRulesUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\AssocRulesUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\Test.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\Test.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\Menu.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\Menu.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\ChartUC.baml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\obj\Debug\View\ChartUC.g.cs
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\zxing.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Firebase.Storage.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Newtonsoft.Json.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\zxing.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\Shopping system\bin\Debug\Newtonsoft.Json.xml

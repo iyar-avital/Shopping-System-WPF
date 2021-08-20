@@ -24,6 +24,7 @@ namespace DAL
 
         #region product
         void addProduct(Product product);
+        void UpdateProduct(Product product);
         BE.Product getProduct(int id);
         List<BE.Product> getProducts(Func<Product, bool> predicate = null);
         #endregion
@@ -40,6 +41,13 @@ namespace DAL
         BE.Purchase getPurchase(int prid);
         List<BE.Purchase> getPurchaseForCostumer(string cid);
         List<BE.Purchase> getPurchases(Func<Purchase, bool> predicate = null);
+        #endregion
+
+        #region fireBaseStorage 
+        string[] GetQRDetails(string QrUML);
+
+        void uploadToFB(string imgUML, Product product, string nameToStorage);
+
         #endregion
 
         void createPDF(List<object[]> items);

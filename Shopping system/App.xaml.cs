@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BE;
+using Shopping_system.Tools;
+using Shopping_system.View_Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +16,11 @@ namespace Shopping_system
     /// </summary>
     public partial class App : Application
     {
+        public static Currents currents { get; set;}
+
+        public App()
+        {
+            currents = new Currents();
+        }
     }
 }

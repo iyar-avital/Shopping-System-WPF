@@ -1,0 +1,197 @@
+﻿<UserControl x:Class="Shopping_system.View.ShoppingDataUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Shopping_system.Converter"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             mc:Ignorable="d" 
+             x:Name="root"
+             d:DesignHeight="1000" d:DesignWidth="1365">
+    <UserControl.Resources>
+        <local:MultiConverter x:Key="multiConverter"/>
+    </UserControl.Resources>
+    <UserControl.Background>
+        <ImageBrush Opacity="0.3" ImageSource="/Images/background.jpg" />
+    </UserControl.Background>
+    <StackPanel Orientation="Horizontal">
+        <Grid Background="#B9D7EA" Width="180">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" >
+                    <Grid>
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="choose filter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1">
+                    <StackPanel Orientation="Vertical" FlowDirection="LeftToRight" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="This data was" FontSize="20" HorizontalAlignment="Center"/>
+                        <TextBlock Text="collected by our" FontSize="20" HorizontalAlignment="Center"/>
+                        <TextBlock Text="internal system." FontSize="20" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Learn and be" FontSize="20" HorizontalAlignment="Center"/>
+                        <TextBlock Text="smart!" FontSize="20" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="3">
+                    <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Hi, " FontSize="20"/>
+                        <TextBlock Text="{Binding Path=currents.CurrentUser.firstName, Source={x:Static Application.Current}}" FontSize="20"/>
+                        <TextBlock Text=" " FontSize="20"/>
+                        <TextBlock Text="{Binding Path=currents.CurrentUser.lastName, Source={x:Static Application.Current}}" FontSize="20"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Row="4" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="1" Kind="Logout" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Grid.Column="0" Grid.ColumnSpan="2" Content="log out" HorizontalAlignment="Center" Command="{Binding DisplayLoginView}"  VerticalAlignment="Center" Style="{StaticResource roundedCornersButtonTransparent}"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        <Grid Opacity="0.7" Width="1185">
+            <Grid>
+                <Button Command="{Binding GoBack}" Template="{StaticResource close}" Style="{StaticResource buttonStyle}" RenderTransformOrigin="0.593,-0.969"></Button>
+                <Border CornerRadius="20" Background="White">
+                    <StackPanel Orientation="Vertical" Margin="0,0,-2,0">
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="Manage " HorizontalAlignment="Center" FontSize="40" Margin="30,30,12,0"/>
+                                <TextBlock Text="Purchase" HorizontalAlignment="Center" FontSize="40" FontWeight="Bold" Margin="0,30,0,0"/>
+                                <materialDesign:PackIcon Grid.Column="2" Kind="ShoppingCart" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="50" Margin="0,36,0,44"/>
+                            </StackPanel>
+                            <Grid>
+                                <Button Command="{Binding GoBack}" Template="{StaticResource close}" Style="{StaticResource buttonStyle}" RenderTransformOrigin="0.593,-0.969"></Button>
+                            </Grid>
+                        </Grid>
+                        <Expander Header="Filtering Purchase Data by:" FontWeight="Bold" Background="Yellow">
+                            <StackPanel Margin="20" Orientation="Horizontal">
+                                <Label Content="Product name:" FontWeight="Normal" />
+                                <ComboBox x:Name="productCombobox" Width="102" Margin="3" ItemsSource="{Binding ProductNames}"/>
+                                <Label Content="Store Name:" FontWeight="Normal" />
+                                <ComboBox x:Name="storeCombobox" Width="102" Margin="3" ItemsSource="{Binding StoreNames}"/>
+                                <Label Content="Date:" FontWeight="Normal" />
+                                <ComboBox x:Name="dateCombobox" Width="102" Margin="3" ItemsSource="{Binding Dates}"/>
+                                <Button Command="{Binding FilterCommand}" x:Name="filterButton" BorderBrush="Black" Content="filter" Foreground="Black" FontSize="10" Background="White" Margin="5" Height="20">
+                                    <Button.CommandParameter>
+                                        <MultiBinding Converter="{StaticResource multiConverter}">
+                                            <Binding ElementName="productCombobox"/>
+                                            <Binding ElementName="storeCombobox"/>
+                                            <Binding ElementName="dateCombobox"/>
+                                        </MultiBinding>
+                                    </Button.CommandParameter>
+                                </Button>
+                                <Button Command="{Binding RestoreCommand}" x:Name="restoreButton" BorderBrush="Black" Content="restore" Foreground="Black" FontSize="10" Background="White" Margin="5" Height="20"></Button>
+                            </StackPanel>
+                        </Expander>
+
+                        <DataGrid x:Name="GuestRequestGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto"  AutoGenerateColumns="False" ItemsSource="{Binding PurchaseVMs}" RowHeight="70" IsReadOnly="True" Grid.Row="1">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Product Name" Width="auto" Binding="{Binding productName}"/>
+                                <DataGridTextColumn Header="QR code" Binding="{Binding qrCode}"/>
+                                <DataGridTextColumn Header="Store Name" Width="auto" Binding="{Binding StoreNmae}"/>
+                                <DataGridTextColumn Header="Store Name" Width="auto" Binding="{Binding city}"/>
+                                <DataGridTextColumn Header="Purchase date" Binding="{Binding date, StringFormat='dd/MM/yyyy'}"/>
+                                <DataGridTextColumn Header="Quantity" Binding="{Binding quantity}"/>
+
+                                <DataGridTemplateColumn Header="Image" Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding imagePath}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!--<here changes-->
+            <Grid x:Name="addGrid" Margin="750,0,0,0" Visibility="Visible">
+                <Border CornerRadius="50" Background="#B9D7EA" Margin="0,200,30,150">
+                    <StackPanel Margin="20">
+                        <StackPanel Height="33" Orientation="Horizontal" Margin="5,0,0,0">
+                            <Button Content="By Qr Code" Name="Qrbutton" Style="{StaticResource roundedCornersButton}" Click="Button_Click"/>
+                            <Button Content="By Details" Name="Detailsbutton" Opacity="0.6" Style="{StaticResource roundedCornersButton}" Click="Button_Click_1"/>
+                        </StackPanel>
+
+                        <StackPanel x:Name="QRsp" Height="auto" Orientation="Vertical" Margin="10,10,0,10">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Grid.Column="2" Kind="AttachFile" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="Please select file:" FontSize="14" FontWeight="Bold"/>
+                                <Button Content="Browse" FontSize="10" Foreground="Black" Margin="10,0,0,0" Height="20" Name="BrowseButton" Width="75" Background="Transparent" BorderBrush="Black" Click="Browse_ButtonClick"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,3">
+                                <materialDesign:PackIcon Grid.Column="2" Kind="PlusOne" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="Product:  " FontWeight="Bold" FontSize="14"/>
+                                <Label x:Name="productName" Content="{Binding productLabel}" Width="180" Height="25" Margin="3,0"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel x:Name="Detailsp" Visibility="Collapsed" Margin="10,10,0,10">
+                            <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,10" VerticalAlignment="Center">
+                                <materialDesign:PackIcon Grid.Column="2" Kind="LocationOn" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="location:" FontWeight="Bold" FontSize="14"/>
+                                <ComboBox Name="location" ItemsSource="{Binding CityStoreNames}" Height="25" Width="140" Margin="3,0,5,0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" VerticalAlignment="Center">
+                                <materialDesign:PackIcon Grid.Column="2" Kind="LocalMall" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="Product:" FontWeight="Bold" FontSize="14"/>
+                                <ComboBox Name="product" ItemsSource="{Binding AllprodctNames}" Height="25" Width="140" Margin="3,0"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Margin="10,0,0,0">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <materialDesign:PackIcon Grid.Column="2" Kind="PlusOne" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="Quantity:" FontWeight="Bold" FontSize="14"/>
+                                <TextBox x:Name="quantity" Width="90" Height="25" Margin="3,0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <materialDesign:PackIcon Grid.Column="2" Kind="AttachMoney" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="Price:      " FontWeight="Bold" FontSize="14"/>
+                                <TextBox x:Name="price" Width="90" Height="25" Margin="3,0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <materialDesign:PackIcon Grid.Column="2" Kind="DateRange" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Label Content="Date:      " FontWeight="Bold" FontSize="14"/>
+                                <DatePicker Name="date" Width="90" Margin="3,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <Button Command="{Binding addPurchaseCommand}" Content="Add" Margin="10,0" Foreground="Black" Background="Transparent" BorderThickness="2" BorderBrush="Black">
+                                <Button.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource multiConverter}">
+                                        <Binding ElementName="location"/>
+                                        <Binding ElementName="product"/>
+                                        <Binding ElementName="quantity"/>
+                                        <Binding ElementName="price"/>
+                                        <Binding ElementName="date"/>
+                                    </MultiBinding>
+                                </Button.CommandParameter>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Button x:Name="AddButton" Margin="1000,500,0,0" Width="auto" Height="auto" Background="Transparent" Foreground="Black" BorderThickness="0" Click="Button_Click_2">
+                <materialDesign:PackIcon Grid.Column="2" Kind="CartAdd" Width="60" Height="60" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+            <Button x:Name="closeAddButton" Visibility="Collapsed" Margin="1000,500,0,0" Width="auto" Height="auto" Background="Transparent" Foreground="Black" BorderThickness="0" Click="closeAddButton_Click">
+                <materialDesign:PackIcon Grid.Column="2" Kind="RemoveShoppingCart" Width="60" Height="60" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+        </Grid>
+    </StackPanel>
+</UserControl>

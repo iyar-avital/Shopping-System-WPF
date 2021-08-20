@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Association Rules\Apriori.cs" />
+    <Compile Include="Association Rules\AssociationRule.cs" />
+    <Compile Include="Association Rules\Comperator.cs" />
+    <Compile Include="Association Rules\Helper.cs" />
+    <Compile Include="Association Rules\ItemSet.cs" />
     <Compile Include="BlIMP.cs" />
     <Compile Include="IBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,5 +60,6 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

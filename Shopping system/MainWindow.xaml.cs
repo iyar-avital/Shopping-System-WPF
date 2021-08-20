@@ -1,4 +1,5 @@
-﻿using Shopping_system.View_Model;
+﻿using Shopping_system.View;
+using Shopping_system.View_Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,10 @@ namespace Shopping_system
     /// </summary>
     public partial class MainWindow : Window
     {
-        private LoginVM CurrentVm;
-
         public MainWindow()
         {
             InitializeComponent();
-
-            CurrentVm = new LoginVM();
-            this.DataContext = CurrentVm;
+            DataContext = new MainWindowVM();
         }
     }
 }

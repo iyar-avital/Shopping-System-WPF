@@ -1,0 +1,164 @@
+﻿<UserControl x:Class="Shopping_system.View.SignupUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:local="clr-namespace:Shopping_system.Converter"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <local:MultiConverter x:Key="multiConverter"/>
+    </UserControl.Resources>
+    <UserControl.Background>
+        <ImageBrush Opacity="0.55" ImageSource="/Images/login.png" />
+    </UserControl.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Column="3" Margin="0,0,20,0" Command="{Binding GoBack}" Template="{StaticResource close}" Style="{StaticResource buttonStyle}" RenderTransformOrigin="0.593,-0.969"></Button>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Text="Sign Up" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" />
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Style="{StaticResource roundedCornersBorder}" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="FirstNametb"  Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" materialDesign:HintAssist.Hint="first name"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource roundedCornersBorder}" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="LastNametb" Grid.Column="1" materialDesign:HintAssist.Hint="last name" BorderThickness="0" VerticalAlignment="Center" FontSize="15" HorizontalContentAlignment="Center"/>
+                        <materialDesign:PackIcon Grid.Column="2" Kind="Account" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Border Grid.Row="1" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="IDtb" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" materialDesign:HintAssist.Hint="id" FontSize="15" BorderThickness="0"/>
+                    <materialDesign:PackIcon Grid.Column="2" Kind="IdCardOutline" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+
+
+            <Border Grid.Row="2" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="Mailtb" Grid.Column="1" BorderThickness="0" HorizontalAlignment="Center" FontSize="15" materialDesign:HintAssist.Hint="mail"/>
+                    <materialDesign:PackIcon Grid.Column="2" Kind="Gmail" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="3" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <PasswordBox Name="pswdBox" Grid.Column="1" FontSize="14" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" materialDesign:HintAssist.Hint="password"/>
+                    <materialDesign:PackIcon Grid.Column="2" Kind="VpnKey" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+
+
+            <!--<Border Grid.Row="4" Style="{StaticResource roundedCornersBorder}" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <PasswordBox x:Name="passwordBox2" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" FontSize="14"
+                                 materialDesign:HintAssist.Hint="הקש שוב את הסיסמה"
+                                 HorizontalContentAlignment="Center" />
+
+
+                    <materialDesign:PackIcon Grid.Column="2" Kind="VpnKey" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>-->
+
+            <Button Command="{Binding currentCommand}" Grid.Row="5" x:Name="signUpbtn" Content="הרשם" Style="{StaticResource roundedCornersButton}" Foreground="Black" Background="Yellow" BorderThickness="2" BorderBrush="Black">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource multiConverter}">
+                        <Binding ElementName="IDtb"/>
+                        <Binding ElementName="FirstNametb"/>
+                        <Binding ElementName="LastNametb"/>
+                        <Binding ElementName="Mailtb"/>
+                        <Binding ElementName="pswdBox"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+        </Grid>
+    </Grid>
+
+    <!--<StackPanel>
+        <Grid Name="mainGrid" Background="white" Margin="90,30,90,90">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="IDtb" Grid.Column="1" HorizontalAlignment="Center" Height="23" materialDesign:HintAssist.Hint="id" VerticalAlignment="Top" Width="175" Margin="116,175,115,0"/>
+            <TextBox x:Name="FirstNametb" Grid.Column="1" HorizontalAlignment="Center" Height="23" materialDesign:HintAssist.Hint="first name" VerticalAlignment="Top" Width="175" Margin="116,215,115,0"/>
+            <TextBox x:Name="LastNametb" Grid.Column="1" HorizontalAlignment="Center" Height="23" materialDesign:HintAssist.Hint="last name" VerticalAlignment="Top" Width="175" Margin="116,260,115,0"/>
+            <TextBox x:Name="Mailtb" Grid.Column="1" HorizontalAlignment="Center" Height="23" materialDesign:HintAssist.Hint="mail" VerticalAlignment="Top" Width="175" Margin="116,305,115,0"/>
+            <PasswordBox Name="pswdBox" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28" materialDesign:HintAssist.Hint="password" Width="175" Grid.Column="1"  Margin="116,356,115,0"/>
+            <Button Command="{Binding currentCommand}" Background="#3F72AF" BorderBrush="#3F72AF" x:Name="signUpbtn" Content="הרשם" FontSize="17" FontWeight="Medium" HorizontalAlignment="Center" Margin="142,414,135,0" VerticalAlignment="Top" Width="129" Height="32" Grid.Column="1">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource multiConverter}">
+                        <Binding ElementName="IDtb"/>
+                        <Binding ElementName="FirstNametb"/>
+                        <Binding ElementName="LastNametb"/>
+                        <Binding ElementName="Mailtb"/>
+                        <Binding ElementName="pswdBox"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Label FontFamily="serif" FontWeight="Bold" FontSize="30" Content="הרשם" Grid.Column="1" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="126,91,115,0" VerticalAlignment="Top" Width="165"/>
+            <Image Source="/Images/main.jpg" HorizontalAlignment="Left" Height="489" VerticalAlignment="Top" Width="374" Margin="32,0,0,0"/>
+        </Grid>
+    </StackPanel>-->
+</UserControl>
+

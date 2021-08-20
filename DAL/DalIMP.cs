@@ -119,6 +119,24 @@ namespace DAL
             }
 
         }
+        public void UpdateProduct(Product product)
+        {
+            try
+            {
+                List<Product> products = getProducts(p => p.pid == product.pid);
+                if (products.Count() == 0)
+                    throw new Exception("מוצר זה לא מוכר במערכת, אנא הוסף אותו");
+                using (var ctx = new ShoppingDB())
+                {
+                    ctx.Entry(product).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Product getProduct(int id)
         {
             using (var ctx = new ShoppingDB())
@@ -243,6 +261,19 @@ namespace DAL
                 return purchases;
             }
         }
+        #endregion
+
+        #region fireBaseStorage 
+        public string[] GetQRDetails(string QrUML)
+        {
+            return FireBaseStorage.GetQRDetails(QrUML);
+        }
+
+        public void uploadToFB(string imgUML, Product product, string nameToStorage)
+        {
+            FireBaseStorage.UploadToFB(imgUML, product, nameToStorage);
+        }
+
         #endregion
 
         public void createPDF(List<object[]> items) { }

@@ -43,10 +43,23 @@ namespace BL
         List<BE.Purchase> getPurchases(Func<Purchase, bool> predicate = null);
         #endregion
 
+        #region apriori 
+
+        List<List<Product>> getListProductByID();
+        List<AssociationRule> GetAssociationRules();
+        #endregion
+
         #region account
         void SignIn(string mail, string pass);
         void SignUp(Costumer _costumer);
         void ForgotPassword(string mail);
+        #endregion
+
+        #region fireBaseStorage 
+        string[] GetQRDetails(string QrUML);
+
+        void uploadToFB(string imgUML, Product product, string nameToStorage);
+
         #endregion
 
         void createPDF(List<object[]> items);

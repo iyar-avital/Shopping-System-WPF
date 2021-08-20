@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="Shopping_system.View.HistoryByPriceUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:local="clr-namespace:Shopping_system.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:MultiConverter x:Key="multiConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="2,0,-2,0">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Filter by" HorizontalAlignment="Center" FontSize="40" Margin="30,30,12,0"/>
+                    <TextBlock Text="Price" HorizontalAlignment="Center" FontSize="40" FontWeight="Bold" Margin="0,30,0,0"/>
+                    <materialDesign:PackIcon Grid.Column="2" Kind="AttachMoney" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="50" Margin="0,36,0,44"/>
+                </StackPanel>
+                <Grid>
+                    <Button Command="{Binding GoBack}" Template="{StaticResource close}" Style="{StaticResource buttonStyle}" RenderTransformOrigin="0.593,-0.969"></Button>
+                    <Button HorizontalAlignment="Left" Width="120" Height="120" Background="Transparent" BorderBrush="Transparent" Command="{Binding ChartCommand}" Margin="0,10,20,0">
+                        <Image Source="/Images/chart.png"/>
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource multiConverter}">
+                                <Binding ElementName="startTB"/>
+                                <Binding ElementName="endTB"/>
+                            </MultiBinding>
+                        </Button.CommandParameter>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <StackPanel Orientation="Vertical">
+                <StackPanel.Margin>
+                    <Thickness Left="30" Top="0" Bottom="0"/>
+                </StackPanel.Margin>
+                  
+                 <StackPanel Orientation="Horizontal">
+                    <Label Content="Day:                  " FontWeight="Normal" />
+                    <ComboBox x:Name="dayCombobox" Width="102" Margin="3" ItemsSource="{Binding Days}"/>
+                    <Label Content="Minimum Price: " FontWeight="Normal">
+                        <Label.Margin>
+                            <Thickness Left="50"/>
+                        </Label.Margin>
+                    </Label>
+                    <Slider x:Name="start" Minimum="0" Maximum="100" Foreground="Yellow" Width="200" Height="20"/>
+                    <TextBox x:Name="startTB" Text="{Binding ElementName=start, Path=Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:#,0.0}}" DockPanel.Dock="Right" TextAlignment="Right" Width="auto" Padding="3" BorderThickness="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Month:             " FontWeight="Normal" />
+                    <ComboBox x:Name="monthCombobox" Width="102" Margin="3" ItemsSource="{Binding Months}"/>
+                    <Label Content="Maximum Price: " FontWeight="Normal">
+                        <Label.Margin>
+                            <Thickness Left="50"/>
+                        </Label.Margin>
+                    </Label>
+                    <Slider x:Name="end" Minimum="0" Maximum="100" Foreground="Yellow" Width="200" Height="20"/>
+                    <TextBox x:Name="endTB" Text="{Binding ElementName=end, Path=Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat={}{0:#,0.0}}" DockPanel.Dock="Right" TextAlignment="Right" Width="auto" Padding="3" BorderThickness="0"/>
+                </StackPanel>
+
+                <Button Command="{Binding FilterCommand}" HorizontalAlignment="Left" x:Name="filterButton" BorderBrush="Black" Content="filter" Foreground="Black" FontSize="10" Background="White" Margin="10" Width="170" Height="25">
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource multiConverter}">
+                            <Binding ElementName="startTB"/>
+                            <Binding ElementName="endTB"/>
+                            <Binding ElementName="dayCombobox"/>
+                            <Binding ElementName="monthCombobox"/>
+                        </MultiBinding>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+
+            <ItemsControl ItemsSource="{Binding shoppingVMs}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="30" Padding="10" CornerRadius="5"  Background="#B9D7EA" BorderBrush="Yellow" BorderThickness="1.5" Opacity="0.7">
+                            <StackPanel>
+                                <TextBlock Text="{Binding storeName}" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                                <TextBlock Text="{Binding city}" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="15" Padding="3"/>
+                                <TextBlock Text="{Binding date, StringFormat=Date: {0:dd/MM/yy}}" FontSize="13" Padding="3"/>
+                                <TextBlock Text="{Binding numProducts, StringFormat=Products amount: {0}}" FontSize="13" Padding="3"/>
+                                <TextBlock Text="{Binding price, StringFormat=Total Price: {0}$}" FontSize="13" Padding="3"/>
+                                <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                                    <Image Width="60" Source="/images/eye.png"/>
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</UserControl>
+

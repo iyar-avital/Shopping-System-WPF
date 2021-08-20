@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BE
 {
+    [Table("Costumers")]
     public class Costumer
     {
+        [Key]
         public string cid { get; set; }
 
         public string firstName { get; set; }
 
         public string lastName { get; set; }
-
 
         public string mail { get; set; }
 

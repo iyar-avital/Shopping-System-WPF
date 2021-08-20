@@ -12,3 +12,12 @@ C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.dll
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\obj\Debug\DAL.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Firebase.Storage.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\zxing.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\zxing.presentation.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\zxing.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\zxing.presentation.xml

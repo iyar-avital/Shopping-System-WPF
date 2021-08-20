@@ -1,15 +1,17 @@
 ﻿using Shopping_system.Command;
 using Shopping_system.Model;
+using Shopping_system.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Shopping_system.View_Model
 {
-    public class LoginVM : INotifyPropertyChanged
+    public class LoginVM : BaseVM, INotifyPropertyChanged
     {
         LoginModel currentModel { get; set; }
 
@@ -47,7 +49,20 @@ namespace Shopping_system.View_Model
 
         private void login(string m, string p)
         {
-
+            try
+            {
+                if (m != "" && p != "")
+                {
+                    currentModel.login(m, p);
+                    App.currents.CurrentUser = currentModel.getCostumer(m);
+                }
+                else
+                    throw new Exception("נא מלא את הפרטים ואז נסה להתחבר. משחק לא הולם בתוכנה תוביל אותך לחסימה מיידית.");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }       
         }
     }
 }
