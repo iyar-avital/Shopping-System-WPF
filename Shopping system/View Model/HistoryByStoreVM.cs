@@ -45,9 +45,15 @@ namespace Shopping_system.View_Model
         #endregion
 
         #region chart
-        public void convertToChart(string s)
+        private string storeName;
+        public string StoreName
         {
-            Currents.chanseSubView(new ChartUC(shoppingVMs.ConvertStoreToDictionary(s), s));
+            get { return storeName; }
+            set { storeName = value; OnPropertyRaised("productName"); }
+        }
+        public void convertToChart()
+        {
+            Currents.chanseSubView(new ChartUC(shoppingVMs.ConvertStoreToDictionary(StoreName), StoreName));
         }
         #endregion
 

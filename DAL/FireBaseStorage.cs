@@ -33,33 +33,43 @@ namespace DAL
 
         public static string[] GetQRDetails(string qrURL)
         {
-            IDAL dal = new DalIMP();
-            string imageUrl = qrURL;
-            WebClient client = new WebClient();
-            Stream stream = client.OpenRead(imageUrl);
+            try
+            {
+                IDAL dal = new DalIMP();
+                string imageUrl = qrURL;
+                WebClient client = new WebClient();
+                Stream stream = client.OpenRead(imageUrl);
 
-            if (stream == null) return null;
-            Bitmap bitmap = new Bitmap(stream);
-            IBarcodeReader reader = new BarcodeReader();
-            Result result = reader.Decode(bitmap);
+                if (stream == null) return null;
+                Bitmap bitmap = new Bitmap(stream);
+                IBarcodeReader reader = new BarcodeReader();
+                Result result = reader.Decode(bitmap);
+                if (result == null)
+                    throw new Exception("Unfortunatally, the QR not recognized");
+                //QRCODE-PNAME-PCODE-PDESCRIPTION-PRICE-PIMGPATH
+                string description = result.Text;
+                string[] tokens = description.Split('-');
+                string QrCode = tokens[0];
+                string name = tokens[1];
+                int id = Convert.ToInt32(tokens[2]);
+                string pDescription = tokens[3];
+                string price = tokens[4];
+                string path = tokens[5];
 
-            //QRCODE-PNAME-PCODE-PDESCRIPTION-PRICE-PIMGPATH
-            string description = result.Text;
-            string[] tokens = description.Split('-');
-            string QrCode = tokens[0];
-            string name = tokens[1];
-            int id = Convert.ToInt32(tokens[2]);
-            string pDescription = tokens[3];
-            string price = tokens[4];
-            string path = tokens[5];
 
+                string[] location = extractLocation(qrURL);
+                string city = location[0];
+                string storeName = location[1];
 
-            string[] location = extractLocation(qrURL);
-            string city = location[0];
-            string storeName = location[1];
+                string[] QrDetails = new string[] { QrCode, name, id.ToString(), pDescription, price, path, storeName, city };
+                return QrDetails;
+            }
+            catch (Exception ex)
+            {
 
-            string[] QrDetails = new string[] { QrCode, name, id.ToString(), pDescription, price, path, storeName, city };
-            return QrDetails;
+                throw ex;
+            }
+          
         }
 
         public static string[] extractLocation(string URL)

@@ -1,5 +1,6 @@
 ﻿using Shopping_system.Tools;
 using Shopping_system.View;
+using Shopping_system.View_Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,11 @@ namespace Shopping_system.Command
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                bool? Result = new MessageBoxCustom(ex.Message, MessageType.Error).ShowDialog();
+                if (Result.Value)
+                {
+                    Application.Current.Shutdown();
+                }
             }
         }
     }

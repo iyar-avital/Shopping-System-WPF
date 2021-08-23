@@ -38,7 +38,7 @@ namespace Shopping_system.View_Model
             Store s = bl.getStore(store);
             storeName = s.storeName;
             city = s.city;
-            shopping = bl.getPurchases(item => /*item.cid == id &&*/ item.date == _date && bl.getQRcode(item.qrCode).sid == store);
+            shopping = bl.getPurchases(item => item.cid==App.currents.CurrentUser.cid && item.date == _date && bl.getQRcode(item.qrCode).sid == store);
         }
     }
 }

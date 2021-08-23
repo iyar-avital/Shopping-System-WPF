@@ -3,3 +3,4 @@ C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BE\obj\Debug\BE.dll
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BE\obj\Debug\BE.pdb
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\BE\obj\Debug\BE.csprojAssemblyReference.cache

@@ -1,4 +1,5 @@
-﻿using Shopping_system.View_Model;
+﻿using BL.AprioriIMP;
+using Shopping_system.View_Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,11 @@ namespace Shopping_system.View
     /// </summary>
     public partial class AssocRulesUC : UserControl
     {
-        public AssocRulesVM currentVM { get; set; }
+        public AprioriVM currentVM { get; set; }
         public AssocRulesUC()
         {
             InitializeComponent();
-            currentVM = new AssocRulesVM();
+            currentVM = new AprioriVM();
 
             DataContext = currentVM;
         }

@@ -35,7 +35,7 @@
             <Image Stretch="Uniform"  Source="/Images/loginLogo.png"></Image>
         </Grid>
 
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="Sign In" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="Log In" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" />
 
         <Grid Grid.Row="3" Grid.Column="1">
             <Grid.RowDefinitions>
@@ -69,8 +69,8 @@
                 </Grid>
             </Border>
 
-            <Button Grid.Row="2" Command="{Binding currentCommand}" Style="{StaticResource roundedCornersButton}" Foreground="Black" Background="Yellow" BorderThickness="2" BorderBrush="Black">
-                <TextBlock Text="כניסה" />
+            <Button Grid.Row="2" Command="{Binding currentCommand}" Style="{StaticResource roundedCornersButton}" Foreground="Black" Background="#fffa96" BorderThickness="2" BorderBrush="Black">
+                <TextBlock Text="log in" />
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource multiConverter}">
                         <Binding ElementName="mailTB"/>
@@ -81,13 +81,13 @@
 
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock FontSize="15" Text="?עוד לא רשום" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <Button FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding DisplaySignUpView}"
+                <TextBlock FontSize="15" Text="Don't have an account?" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button FontSize="15" Grid.Column="1" ToolTip="log" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding DisplaySignUpView}"
                 Style="{StaticResource roundedCornersButtonTransparent}">
-                    <TextBlock Text="צור חשבון"/>
+                    <TextBlock Text="Sign up"/>
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <ContentPresenter VerticalAlignment="Center"/>

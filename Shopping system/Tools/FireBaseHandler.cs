@@ -12,7 +12,7 @@ namespace Shopping_system.Tools
 {
     public static class FireBaseHandler
     {
-        public static void chechQR(string selectedFileName, int quantity, double _price, DateTime date, string cid)
+        public static Purchase chechQR(string selectedFileName, int quantity, double _price, DateTime date, string cid)
         {
             IBL bl = new BlIMP();
             string[] QRDetails = bl.GetQRDetails(selectedFileName);//qrcode, pname, productId, pDescription, path , storeName, city 
@@ -25,32 +25,41 @@ namespace Shopping_system.Tools
             string storeName = QRDetails[6];
             string city = QRDetails[7];
 
+            QRcode umlQR = bl.getQRcode(qrCode);
             Product product;
-            Store store= bl.getStores(s => s.city == city && s.storeName == storeName).FirstOrDefault();
-            if(store == null)
-            {
-                store = new Store(idGenerator.getStoreID(), storeName, city);
-                bl.addStore(store);
-            }
-            string nameToStorage = pname + "-" + productId + ".jpg";
+            Store store;
+            List<Product> products;
 
-            List<Product> products = bl.getProducts(p => p.pid == productId);
-            if (products.Count == 0)
+            if (umlQR != null)
             {
-                product = new Product(productId, pname, pDescription, path);
-                bl.addProduct(product);
-                bl.uploadToFB(path, product, nameToStorage);
-                if (price != _price)
-                    MessageBox.Show("This Product price has been changed");
-                bl.addQRcode(new QRcode(qrCode, productId, store.sid, quantity, price));
-                bl.addPurchase(new Purchase(idGenerator.getPurchaseID(), cid, qrCode, Convert.ToInt32(quantity), date));
+                return new Purchase(idGenerator.getPurchaseID(), cid, qrCode, Convert.ToInt32(quantity), date);
             }
-            else //this produt already exists in the db, now it get another instance
+
+            else
             {
-                QRcode qrCode1 = bl.getQRcode(qrCode);
-                if (qrCode1 == null)
-                    bl.addQRcode(new QRcode(qrCode, productId, store.sid, quantity, price));
-                bl.addPurchase(new Purchase(idGenerator.getPurchaseID(), cid, qrCode, Convert.ToInt32(quantity), date));
+                store = bl.getStores(s => s.city == city && s.storeName == storeName).FirstOrDefault();
+                if (store == null)
+                {
+                    store = new Store(idGenerator.getStoreID(), storeName, city);
+                    bl.addStore(store);
+                }
+
+                products = bl.getProducts(p => p.productName == pname);
+                if (products.Count == 0)
+                {
+                    product = new Product(productId, pname, pDescription, path);
+                    bl.addProduct(product);
+                    string nameToStorage = pname + "-" + product.pid + ".jpg";
+                    bl.uploadToFB(path, product, nameToStorage);
+                    bl.addQRcode(new QRcode(qrCode, product.pid, store.sid, quantity, price));
+                    return new Purchase(idGenerator.getPurchaseID(), cid, qrCode, Convert.ToInt32(quantity), date);
+                }
+
+                else //this produt already exists in the db, now it get another instance
+                {                
+                    bl.addQRcode(new QRcode(qrCode, products[0].pid, store.sid, quantity, price));
+                    return new Purchase(idGenerator.getPurchaseID(), cid, qrCode, Convert.ToInt32(quantity), date);
+                }
             }
         }
     }

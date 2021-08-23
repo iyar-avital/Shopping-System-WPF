@@ -14,6 +14,7 @@ namespace Shopping_system.View_Model
     {
         public ChartModel currentModel { get; set; }
         public string productName { get; set; }
+
         public SeriesCollection PieChartSeriesCollection { get; set; }
 
         public ChartVM(Dictionary<string, int> d, string p)

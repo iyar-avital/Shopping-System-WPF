@@ -11,8 +11,12 @@
         <local:MultiConverter x:Key="multiConverter"/>
     </UserControl.Resources>
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="2,0,-2,0">
-            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="Filter by" HorizontalAlignment="Center" FontSize="40" Margin="30,30,12,0"/>
                     <TextBlock Text="Store" HorizontalAlignment="Center" FontSize="40" FontWeight="Bold" Margin="0,30,0,0"/>
@@ -26,13 +30,13 @@
                 </Grid>
             </Grid>
 
-            <StackPanel Orientation="Vertical">
+            <StackPanel Grid.Row="1" Orientation="Vertical">
                 <StackPanel.Margin>
                     <Thickness Left="30" Top="0" Bottom="0"/>
                 </StackPanel.Margin>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Store Name: " FontWeight="Normal" />
-                    <ComboBox x:Name="storeCombobox" Width="102" Margin="3" ItemsSource="{Binding StoreNames}"/>
+                <ComboBox x:Name="storeCombobox" Width="102" Margin="3" ItemsSource="{Binding StoreNames}" SelectedValue="{Binding StoreName, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Day:              " FontWeight="Normal" />
@@ -53,6 +57,7 @@
                 </Button>
             </StackPanel>
 
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding shoppingVMs}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -64,7 +69,7 @@
                                 <TextBlock Text="{Binding numProducts, StringFormat=Products amount: {0}}" FontSize="13" Padding="3"/>
                                 <TextBlock Text="{Binding price, StringFormat=Total Price: {0}$}" FontSize="13" Padding="3"/>
                                 <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
-                                    <Image Width="60" Source="/images/eye.png"/>
+                                    <materialDesign:PackIcon Kind="Cart" Foreground="Black" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Button>
                             </StackPanel>
                         </Border>
@@ -76,6 +81,6 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
-        </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

@@ -199,40 +199,7 @@ namespace BL
         }
 
         #endregion
-
-        #region apriori 
-
-        public List<List<Product>> getListProductByID()
-        {
-            IDAL dal = new DalIMP();
-            List<Costumer> costumers = dal.getCostumers();
-            List<Purchase> purchases = new List<Purchase>();
-            List<Product> products;
-            List<List<Product>> listProducts = new List<List<Product>>();
-            foreach (var costumer in costumers)
-            {
-                purchases = dal.getPurchaseForCostumer(costumer.cid);
-                products = new List<Product>();
-                for (int i = 0; i < purchases.Count; i++)
-                {
-                    products.Add(dal.getProduct(purchases[i].prid));
-                    products = products.Distinct().ToList();
-                }
-                listProducts.Add(products);
-            }
-            return listProducts;
-        }
-
-        public List<AssociationRule> GetAssociationRules()
-        {
-            IBL bl = new BlIMP();
-            List<List<Product>> listProducts = getListProductByID();
-            Apriori a = new Apriori(0.3, listProducts);//Treshold = 0.3 
-            List<AssociationRule> associationRules = a.getRules();
-            return associationRules;
-        }
-        #endregion
-
+       
         #region account
         public void SignIn(string mail, string pass)
         {
@@ -337,6 +304,10 @@ namespace BL
 
         #endregion
 
-        public void createPDF(List<object[]> items) { }
+        public void createPDF(List<object[]> items)
+        {
+            IDAL dal = new DalIMP();
+            dal.createPDF(items);
+        }
     }
 }

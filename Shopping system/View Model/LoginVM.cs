@@ -57,7 +57,7 @@ namespace Shopping_system.View_Model
                     App.currents.CurrentUser = currentModel.getCostumer(m);
                 }
                 else
-                    throw new Exception("נא מלא את הפרטים ואז נסה להתחבר. משחק לא הולם בתוכנה תוביל אותך לחסימה מיידית.");
+                    throw new Exception("Please fill in the details then try to connect. \nImproper play in the software will lead you to an immediate block.");
             }
             catch (Exception ex)
             {

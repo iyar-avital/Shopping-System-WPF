@@ -36,11 +36,9 @@ namespace Shopping_system.Model
 
         public void Remove(int id)
         {
-            //var flower = (from f in Flowers
-            //              where f.Id == id
-            //              select f).First<Flower>();
-
-            //Flowers.Remove(flower);
+            Purchase purchase = bl.getPurchase(id);
+            bl.deletePurchaseFromUserFile(id);
+            purchases.Remove(purchase);
         }
     }
 }

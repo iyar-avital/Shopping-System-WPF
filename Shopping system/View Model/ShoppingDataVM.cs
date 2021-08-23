@@ -7,28 +7,34 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Shopping_system.View_Model
 {
-    public class ShoppingDataVM : BaseVM
+    public class ShoppingDataVM : BaseVM, INotifyPropertyChanged
     {
         public PurchaseModel currentModel { get; set; }
         public ObservableCollection<PurchaseVM> PurchaseVMs { get; set; }
         public AddCommand addPurchaseCommand { get; set; }
+        public RemoveCommand removePurchaseCommand { get; set; }
         public BrowseCommand BrowseCommand { get; set; }
         public FilterCommand FilterCommand { get; set; }
         public RestoreCommand RestoreCommand { get; set; }
-        public string ImagePath { get; set; }
+        public PurchaseBasicVM PurchaseBasic { get; set; }
 
         public ShoppingDataVM()
         {
+            PurchaseBasic = new PurchaseBasicVM();
+
             currentModel = new PurchaseModel();
             addPurchaseCommand = new AddCommand(execute, canExecute);
+            removePurchaseCommand = new RemoveCommand(executeRemove, canExecute);
             BrowseCommand = new BrowseCommand();
             BrowseCommand.browse += browse;
             FilterCommand = new FilterCommand();
@@ -38,6 +44,11 @@ namespace Shopping_system.View_Model
 
             PurchaseVMs = currentModel.purchases.GetPurchaseVM();
             PurchaseVMs.CollectionChanged += Purchases_CollectionChanged;
+
+            CityStoreNames = ExtendForAdd.GetCityStoreNames();
+            ProductNames = PurchaseVMs.GetDistinctProducts();
+            StoreNames = PurchaseVMs.GetDistinctStores();
+            Dates = PurchaseVMs.GetDistinctDates();
         }
 
         #region Command
@@ -46,60 +57,20 @@ namespace Shopping_system.View_Model
             execute(parameter);
         }
 
-        void execute(object o)
-        {
-            object[] parameters = (object[])o;
-            ComboBox locationCB = parameters[0] as ComboBox;
-            ComboBox productCB = parameters[1] as ComboBox;
-            TextBox quantityTB = parameters[2] as TextBox;
-            TextBox priceTB = parameters[3] as TextBox;
-            DatePicker dateDP = parameters[4] as DatePicker;
-
-            if (locationCB.SelectedItem != null && productCB.SelectedItem != null)
-            {
-                string location = (string)locationCB.SelectedItem;
-                string productName = (string)productCB.SelectedItem;
-                int quantity = Convert.ToInt32(quantityTB.Text);
-                double price = Convert.ToDouble(priceTB.Text);
-                DateTime date = (DateTime)dateDP.SelectedDate;
-                string[] tokens = location.Split('-');
-                string city = tokens[0];
-                string store = tokens[1];
-
-                IBL bl = new BlIMP();
-                Product product;
-                Purchase p;
-                try
-                {
-                    product = ExtendForAdd.getProductByDetails(productName);
-                    QRcode qr = ExtendForAdd.getQRByDetails(product.pid, city, store, price);
-                    if (qr.price !=price)
-                    {
-                        MessageBox.Show("The product price has been change");
-                    }
-                    p = new Purchase(idGenerator.getPurchaseID(), App.currents.CurrentUser.cid, qr.qrCode, Convert.ToInt32(quantity), date);
-                    PurchaseVMs.Add(new PurchaseVM(p));
-                    bl.addPurchase(p);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-            else
-            {
-                int quantity = Convert.ToInt32(quantityTB.Text);
-                double price = Convert.ToDouble(quantityTB.Text);
-                DateTime date = (DateTime)dateDP.SelectedDate;
-                FireBaseHandler.chechQR(ImagePath, quantity, price, date, App.currents.CurrentUser.cid);
-            }
-        }
-
+     
         bool canExecute(object o)
         {
             return true;
         }
+
+        void  executeRemove(object o)
+        {
+            if (o == null)
+                throw new Exception("The system was busy. try again later");
+            int purchaseID = Convert.ToInt32(o);
+            currentModel.Remove(purchaseID);
+        }
+
         #endregion
 
         #region filter
@@ -123,7 +94,27 @@ namespace Shopping_system.View_Model
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                //currentModel.purchases.Add(new Purchase());
+                List<PurchaseVM> vM = new List<PurchaseVM>();
+                foreach (var item in PurchaseVMs)
+                {
+                    if (!ProductNames.Contains(item.productName))
+                        vM.Add(item);
+                }
+
+                foreach (var item in vM)
+                {
+                    string _new = item.city + "-" + item.StoreNmae;
+                    CityStoreNames.Add(_new);
+
+                    _new = item.productName;
+                    ProductNames.Add(_new);
+
+                    _new = item.StoreNmae;
+                    StoreNames.Add(_new);
+
+                    _new = item.dateStr;
+                    Dates.Add(_new);
+                }
             }
 
             if (e.Action == NotifyCollectionChangedAction.Remove)
@@ -132,39 +123,68 @@ namespace Shopping_system.View_Model
             }
         }
 
+        void execute(object o)
+        {
+            try
+            {
+                IBL bl = new BlIMP();
+
+                if (PurchaseBasic.fillAllFields() != true)
+                    throw new Exception("Please fill all fields.");
+
+                if (PurchaseBasic.fillByDetails())
+                {
+                    string[] tokens = PurchaseBasic.Location.Split('-');
+                    string city = tokens[0];
+                    string store = tokens[1];
+
+                    Product product;
+                    Purchase p;
+                    product = ExtendForAdd.getProductByDetails(PurchaseBasic.Product);
+                    QRcode qr = ExtendForAdd.getQRByDetails(product.pid, city, store, Convert.ToDouble(PurchaseBasic.Price));
+                    p = new Purchase(idGenerator.getPurchaseID(), App.currents.CurrentUser.cid, qr.qrCode, Convert.ToInt32(PurchaseBasic.Quantity), PurchaseBasic.Date);
+                    PurchaseVMs.Add(new PurchaseVM(p));
+                    bl.addPurchase(p);
+
+                    string currentPrice = PurchaseBasic.Price;
+                    PurchaseBasic.clear();
+
+                    if (qr.price.ToString() != currentPrice)
+                    {
+                        throw new Exception("The product price has been changed");
+                    }
+                }
+
+                else
+                {
+                    Purchase p = FireBaseHandler.chechQR(PurchaseBasic.ImagePath, Convert.ToInt32(PurchaseBasic.Quantity), Convert.ToDouble(PurchaseBasic.Price), PurchaseBasic.Date, App.currents.CurrentUser.cid);
+                    PurchaseVMs.Add(new PurchaseVM(p));
+                    bl.addPurchase(p);
+                    string currentPrice = PurchaseBasic.Price;
+                    PurchaseBasic.clear();
+                    if (bl.getQRcode(p.qrCode).price.ToString() != currentPrice)
+                    {
+                        throw new Exception("The product price has been changed");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
         #endregion
 
-        #region add purchase 
-        public ObservableCollection<string> AllprodctNames
-        {
-            get { return ExtendForAdd.GetProductNames(); }
-            set { }
-        }
-        public ObservableCollection<string> CityStoreNames
-        {
-            get { return ExtendForAdd.GetCityStoreNames(); }
-            set { }
-        }
+        #region add purchase Lists
+        public ObservableCollection<string> CityStoreNames { get; set; }
         #endregion
 
-        public ObservableCollection<string> ProductNames
-        { 
-            get { return PurchaseVMs.GetDistinctProducts(); }
-            set { }
-        }
-        public ObservableCollection<string> StoreNames
-        {
-            get { return PurchaseVMs.GetDistinctStores(); }
-            set { }
-        }
-        public ObservableCollection<string> Dates
-        {
-            get { return PurchaseVMs.GetDistinctDates(); }
-            set { }
-        }
-
+        public ObservableCollection<string> ProductNames { get; set; }
+        public ObservableCollection<string> StoreNames { get; set; }
+        public ObservableCollection<string> Dates { get; set; }
         public ObservableCollection<PurchaseVM> allPurchaseVMs { get; set; }
 
-        public string productLabel { get; set; }
     }
 }

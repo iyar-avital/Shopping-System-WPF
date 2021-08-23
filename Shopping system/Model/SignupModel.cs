@@ -33,11 +33,13 @@ namespace Shopping_system.Model
                     c = new Costumer(cid, fname, lname, mail, pswd);
                     bl.addCostumer(c);
                 }
+                else
+                    throw new Exception("One or more of the fields were filled with incorrect values");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception("invalid values");
+                throw ex;
             }
         }
     }

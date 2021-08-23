@@ -22,7 +22,15 @@
                     </Ellipse>
                 </Grid>
             </ControlTemplate>
-            
+            <ControlTemplate x:Key="icon" TargetType="Label">
+                <Grid>
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/images/sicon.jpg"></ImageBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+            </ControlTemplate>
             <Style x:Key="roundedCornersBorder" TargetType="Border">
                 <Setter Property="CornerRadius" Value="20"/>
                 <Setter Property="BorderThickness" Value="6"/>

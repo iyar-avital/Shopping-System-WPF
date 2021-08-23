@@ -12,7 +12,7 @@ namespace Shopping_system.Command
 {
     public class ChartCommand : ICommand
     {
-        public event Action<string> graphical;
+        public event Action graphical;
 
         public event EventHandler CanExecuteChanged
         {
@@ -28,12 +28,12 @@ namespace Shopping_system.Command
         public void Execute(object parameter)
         {
             ComboBox productCB = parameter as ComboBox;
-            string product = (string)productCB.SelectedItem;
+            //string product = (string)productCB.SelectedItem;
 
             try
             {
                 if (graphical != null)
-                    graphical(product);
+                    graphical();
             }
             catch (Exception ex)
             {

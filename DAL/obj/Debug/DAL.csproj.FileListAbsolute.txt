@@ -21,3 +21,8 @@ C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\zxing.presentation.dll
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\zxing.xml
 C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\zxing.presentation.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Syncfusion.Compression.Base.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Syncfusion.Licensing.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Syncfusion.Pdf.Base.dll
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Syncfusion.Compression.Base.xml
+C:\Users\iyar\Documents\Studies\Third year\הנדסת מערכות חלונות\Shopping system\DAL\bin\Debug\Syncfusion.Pdf.Base.xml

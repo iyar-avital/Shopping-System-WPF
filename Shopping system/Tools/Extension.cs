@@ -23,7 +23,7 @@ namespace Shopping_system.Tools
         public static void createDB(this IBL bl)
         {
             Costumer c1 = new Costumer("Iyar", "Avital", "323075499", "iyaravital@gmail.com", "blabla5");
-            bl.addCostumer(c1);
+           // bl.addCostumer(c1);
             bl.addProduct(new Product(123, "milk", "Fresh milk, 5% and lactose deficient", "/images/milk.jpg"));
             bl.addProduct(new Product(124, "bread", "Bread five grains", " /images/bread.png"));
             bl.addStore(new Store(5644, "Rami levy", "Jerusalem"));

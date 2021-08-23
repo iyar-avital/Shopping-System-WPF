@@ -78,10 +78,12 @@ namespace Shopping_system.View_Model
             {
                 if (cid != "" && fname != "" && lname != "" && mail != "" && pswd != "")
                     currentModel.signUp(cid, fname, lname, mail, pswd);
+                else
+                    throw new Exception("Please fill in the details then try to connect. \nImproper play in the software will lead you to an immediate block.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("invalid values");
+                throw ex;
             }
         }
     }

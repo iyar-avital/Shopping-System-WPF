@@ -24,7 +24,7 @@ namespace Shopping_system.View_Model
             FilterCommand = new PriceFilterCommand();
             FilterCommand.filter += filterData;
             ChartCommand = new ChartPriceCommand();
-             ChartCommand.graphical += convertToChart;
+            ChartCommand.graphical += convertToChart;
             shoppingVMs = currentModel.purchases.GetBuyVM();
         }
 

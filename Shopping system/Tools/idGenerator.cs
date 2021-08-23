@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Shopping_system.Tools
 {
-    public class idGenerator
+    public static class idGenerator
     {
         private static int purchaseID { get; set; }
         private static int qrID { get; set; }
         private static int storeID { get; set; }
         private static int colorID { get; set; }
 
-        public idGenerator()
+        static idGenerator()
         {
             IBL bL = new BlIMP();
             purchaseID = bL.getPurchases().Max(item => item.prid)+1;
@@ -25,17 +25,17 @@ namespace Shopping_system.Tools
 
         public static int getPurchaseID()
         {
-            return purchaseID++;
+            return ++purchaseID;
         }
 
         public static int getqrID()
         {
-            return qrID++;
+            return ++qrID;
         }
 
         public static int getStoreID()
         {
-            return storeID++;
+            return ++storeID;
         }
 
         public static string getColorID()
@@ -43,7 +43,7 @@ namespace Shopping_system.Tools
             if (ExtendChart.color.Count > colorID)
                 return ExtendChart.color[colorID++];
             else
-                return ExtendChart.color[(colorID = 0)];
+                return ExtendChart.color[(colorID = 1)];
         }
 
     

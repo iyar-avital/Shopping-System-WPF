@@ -61,6 +61,16 @@ namespace Shopping_system.View_Model
             }
         }
 
+        public string price
+        {
+            get { return qRcode.price.ToString()+"$"; }
+            set
+            {
+                price = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("price"));
+            }
+        }
+
         public int quantity
         {
             get { return purchase.quantity; }

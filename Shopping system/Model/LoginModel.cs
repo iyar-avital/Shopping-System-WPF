@@ -23,8 +23,8 @@ namespace Shopping_system.Model
         public void login(string mail, string pass)
         {
 
-            if (!Validation.IsPassword(pass) || !Validation.IsEmail(mail))
-                throw new Exception("not valid email or password");
+            //if (!Validation.IsPassword(pass) || !Validation.IsEmail(mail))
+            //    throw new Exception("not valid email or password");
             try
             {
                 bL.SignIn(mail, pass);

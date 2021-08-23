@@ -11,7 +11,7 @@
         <ImageBrush Opacity="0.18" ImageSource="/Images/background.jpg" />
     </UserControl.Background>
     <StackPanel Orientation="Horizontal">
-        <Grid Background="#B9D7EA" Width="150">
+        <Grid Background="#C1F5E9" Width="180">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="1*"/>
@@ -24,7 +24,7 @@
 
             <Border Grid.Row="0" >
                 <Grid>
-                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="choose filter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Choose option" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
                 </Grid>
             </Border>
 
@@ -83,7 +83,7 @@
             </Border>
         </Grid>
 
-        <Grid Width="1205">
+        <Grid Width="1175">
             <ContentControl Content="{Binding Path=currents.SubCurrentView, Source={x:Static Application.Current}}"/>
         </Grid>
     </StackPanel>

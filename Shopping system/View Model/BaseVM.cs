@@ -87,6 +87,7 @@ namespace Shopping_system.View_Model
             {
                 return new BaseCommand(delegate ()
                 {
+                    Currents.chanseSubView(new HistoryByProductUC());
                     Currents.chanseView(new SelectionUC());
                 });
             }
@@ -125,6 +126,51 @@ namespace Shopping_system.View_Model
             }
         }
 
+        public ICommand DisplayList
+        {
+            get
+            {
+                return new BaseCommand(delegate ()
+                {
+                    Currents.chanseView(new ShoppingCartList());
+                    Currents.chanseSubView(new FamilyListUC());
+                });
+            }
+        }
+
+        public ICommand DisplayFamilyList
+        {
+            get
+            {
+                return new BaseCommand(delegate ()
+                {
+                    Currents.chanseSubView(new FamilyListUC());
+                });
+            }
+        }
+
+        public ICommand DisplayHealthList
+        {
+            get
+            {
+                return new BaseCommand(delegate ()
+                {
+                    Currents.chanseSubView(new HealthListUC());
+                });
+            }
+        }
+
+        public ICommand DisplayForYouList
+        {
+            get
+            {
+                return new BaseCommand(delegate ()
+                {
+                    Currents.chanseSubView(new ForYouListUC());
+                });
+            }
+        }
+
         public ICommand GoBack
         {
             get
@@ -136,66 +182,6 @@ namespace Shopping_system.View_Model
                 });                
             }
         }
-
-        //public ICommand Logout
-        //{
-        //    get
-        //    {
-        //        return new BaseCommand(delegate ()
-        //        {
-        //            App.currents.CurrentView = new LoginUC();
-        //            App.currents.GoBack.Clear();
-        //            App.currents.CurrentUser = null;
-        //        });
-        //    }
-        //}
-
-        //public ICommand LastPurchase
-        //{
-        //    get
-        //    {
-        //        return new BaseCommand(delegate () { ((App)Application.Current).Currents.CurrentVM = new LastPurchaseVM(); });
-        //    }
-        //}
-
-        //public ICommand HistoryByShop
-        //{
-        //    get
-        //    {
-        //        return new BaseCommand(delegate () { ((App)Application.Current).Currents.CurrentVM = new HistoryByShopVM(); });
-        //    }
-        //}
-        //public ICommand HistoryByItem
-        //{
-        //    get
-        //    {
-        //        return new BaseCommand(delegate () { ((App)Application.Current).Currents.CurrentVM = new HistoryByItemVM(); });
-        //    }
-        //}
-
-        //public ICommand HistoryBySCart
-        //{
-        //    get
-        //    {
-        //        return new BaseCommand(delegate () { ((App)Application.Current).Currents.CurrentVM = new HistoryBySCartVM(); });
-        //    }
-        //}
-
-        //public ICommand PriceComparison
-        //{
-        //    get
-        //    {
-        //        return new BaseCommand(delegate () { ((App)Application.Current).Currents.CurrentVM = new PriceComparisonVM(); });
-        //    }
-        //}
-
-        //public ICommand CreateCart
-        //{
-        //    get
-        //    {
-        //        return new BaseCommand(delegate () { ((App)Application.Current).Currents.CurrentVM = new CreateCartVM(); });
-        //    }
-        //}
         #endregion
 
     }

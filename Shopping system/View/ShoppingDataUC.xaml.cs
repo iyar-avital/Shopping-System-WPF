@@ -82,10 +82,60 @@ namespace Shopping_system.View
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(selectedFileName);
                 bitmap.EndInit();
-                CurrentVm.ImagePath = selectedFileName;
-                string[] result = selectedFileName.Split('\\');
-                CurrentVm.productLabel = result[7];
+                CurrentVm.PurchaseBasic.ImagePath = selectedFileName;
+                string[] result = selectedFileName.Split('\\');          
+                CurrentVm.PurchaseBasic.Product = result[7].Substring(0, result[7].Length - 4);
+                productName.Content = CurrentVm.PurchaseBasic.Product;
             }
+        }
+
+        private void Grid_Collapsed(object sender, RoutedEventArgs e)
+        {
+            generalGrid.RowDefinitions.Clear();
+            RowDefinition row = new RowDefinition();
+            row.Height = new GridLength(0.2, GridUnitType.Star);
+            generalGrid.RowDefinitions.Add(row);
+
+            RowDefinition row2 = new RowDefinition();
+            row2.Height = new GridLength(0.1, GridUnitType.Star);
+            generalGrid.RowDefinitions.Add(row2);
+
+            RowDefinition row3 = new RowDefinition();
+            row3.Height = new GridLength(1, GridUnitType.Star);
+            generalGrid.RowDefinitions.Add(row3);
+        }
+
+        private void Grid_Expanded(object sender, RoutedEventArgs e)
+        {
+            generalGrid.RowDefinitions.Clear();
+            RowDefinition row = new RowDefinition();
+            row.Height = new GridLength(0.2, GridUnitType.Star);
+            generalGrid.RowDefinitions.Add(row);
+
+            RowDefinition row2 = new RowDefinition();
+            row2.Height = new GridLength(0.24, GridUnitType.Star);
+            generalGrid.RowDefinitions.Add(row2);
+
+            RowDefinition row3 = new RowDefinition();
+            row3.Height = new GridLength(1, GridUnitType.Star);
+            generalGrid.RowDefinitions.Add(row3);
+
+        }
+
+        private void GuestRequestGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void deleteClick(object sender, RoutedEventArgs e)
+        {
+            PurchaseVM val = GuestRequestGrid.SelectedItem as PurchaseVM;
+            if (val != null)
+            {
+                CurrentVm.currentModel.Remove(val.prid);
+                CurrentVm.PurchaseVMs.Remove(val);
+            }
+
         }
     }
 }

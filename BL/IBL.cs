@@ -45,8 +45,8 @@ namespace BL
 
         #region apriori 
 
-        List<List<Product>> getListProductByID();
-        List<AssociationRule> GetAssociationRules();
+        //List<List<Product>> getListProductByID();
+        //List<AssociationRule> GetAssociationRules();
         #endregion
 
         #region account

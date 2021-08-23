@@ -5,48 +5,144 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Shopping_system.View"
              xmlns:local1="clr-namespace:Shopping_system.Converter"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             mc:Ignorable="d">
     <UserControl.Background>
-        <ImageBrush Opacity="0.5" ImageSource="/Images/background.jpg" />
+        <ImageBrush Opacity="0.3" ImageSource="/Images/background.jpg" />
     </UserControl.Background>
     <UserControl.Resources>
         <local1:MultiConverter x:Key="multiConverter"/>
+        <Style x:Key="elipseStyle" TargetType="Ellipse">
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Stroke" Value="Black"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <ControlTemplate x:Key="manageCart" TargetType="Button">
+            <Grid>
+                <Ellipse Style="{StaticResource elipseStyle}">
+                    <Ellipse.Fill>
+                        <ImageBrush Opacity="0.1" ImageSource="/images/Menu1.jpg"></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <materialDesign:PackIcon Kind="ShoppingCart" Foreground="Black" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="associationRules" TargetType="Button">
+            <Grid>
+                <Ellipse Style="{StaticResource elipseStyle}">
+                    <Ellipse.Fill>
+                        <ImageBrush Opacity="0.1" ImageSource="/images/Menu2.jpg"></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <materialDesign:PackIcon Kind="ArrowForward" Foreground="Black" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="Filter" TargetType="Button">
+            <Grid>
+                <Ellipse Style="{StaticResource elipseStyle}">
+                    <Ellipse.Fill>
+                        <ImageBrush Opacity="0.1" ImageSource="/images/Menu3.jpg"></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <materialDesign:PackIcon Kind="Filter" Foreground="Black" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="recommenderCart" TargetType="Button">
+            <Grid>
+                <Ellipse Style="{StaticResource elipseStyle}">
+                    <Ellipse.Fill>
+                        <ImageBrush Opacity="0.1" ImageSource="/images/Menu4.jpg"></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <materialDesign:PackIcon Kind="ListStatus" Foreground="Black" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
     </UserControl.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Height="50" Command="{Binding DisplayAllPurchase}" Foreground="Black" Background="Yellow" BorderThickness="2" BorderBrush="Black" Margin="195,54,193,9">
-            <TextBlock Text="ניהול קניות" />
-        </Button>
+    <StackPanel Orientation="Horizontal">
+        <Grid Background="#C1F5E9" Width="180">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.6*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
-        <Button Grid.Row="1" Height="50" Command="{Binding DisplayAssociationRules}" Foreground="Black" Background="Yellow" BorderThickness="2" BorderBrush="Black" Margin="195,40,193,23">
-            <TextBlock Text="חוקים" />
-        </Button>
+            <Border Grid.Row="0" >
+                <Grid>
+                    <Label Margin="0,0,0,0" Grid.Column="2" Template="{StaticResource icon}" Width="80" Height="80"></Label>
+                    <TextBlock Margin="0,115,0,0" Grid.ColumnSpan="2" Text="Sbuy" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Margin="0,160,0,0" Grid.ColumnSpan="2" Text="Your smartest buy" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                </Grid>
+            </Border>
 
-        <Button Grid.Row="2" Height="50" Command="{Binding DisplayFilterSelection}" Foreground="Black" Background="Yellow" BorderThickness="2" BorderBrush="Black" Margin="195,31,193,31">
-            <TextBlock Text="תצוגה גרפית וויזואלית" />
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource multiConverter}">
-                    <Binding ElementName="mailTB"/>
-                    <Binding ElementName="passwordTB"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
+            <Border Grid.Row="2">
+                <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Hi, " FontSize="20"/>
+                    <TextBlock Text="{Binding Path=currents.CurrentUser.firstName, Source={x:Static Application.Current}}" FontSize="20"/>
+                    <TextBlock Text=" " FontSize="20"/>
+                    <TextBlock Text="{Binding Path=currents.CurrentUser.lastName, Source={x:Static Application.Current}}" FontSize="20"/>
+                </StackPanel>
+            </Border>
 
-        <Button Grid.Row="3" Height="50" Command="{Binding currentCommand}" Foreground="Black" Background="Yellow" BorderThickness="2" BorderBrush="Black" Margin="195,23,193,39">
-            <TextBlock Text="רשימת קניות" />
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource multiConverter}">
-                    <Binding ElementName="mailTB"/>
-                    <Binding ElementName="passwordTB"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
-    </Grid>
+            <Border Grid.Row="3" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Grid.Column="1" Kind="Logout" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Content="log out" HorizontalAlignment="Center" Command="{Binding DisplayLoginView}"  VerticalAlignment="Center" Style="{StaticResource roundedCornersButtonTransparent}"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <StackPanel Orientation="Vertical">
+            <Button Margin="0,45,60,5" Command="{Binding GoBack}" Template="{StaticResource close}" Style="{StaticResource buttonStyle}"></Button>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="160,177,25,0">
+                    <Button Height="180" Command="{Binding DisplayAllPurchase}" Template="{StaticResource manageCart}">
+                    </Button>
+                    <TextBlock Text="Manage Purchases" FontSize="15" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="25,177,25,0">
+                    <Button   Height="180" Command="{Binding DisplayAssociationRules}" Template="{StaticResource associationRules}">
+                    </Button>
+                    <TextBlock Text="Association Rules" FontSize="15" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="25,177,25,0">
+                    <Button Height="180" Command="{Binding DisplayFilterSelection}" Template="{StaticResource Filter}">
+                        <TextBlock Text="תצוגה גרפית וויזואלית" />
+                        <Button.CommandParameter>
+                            <MultiBinding Converter="{StaticResource multiConverter}">
+                                <Binding ElementName="mailTB"/>
+                                <Binding ElementName="passwordTB"/>
+                            </MultiBinding>
+                        </Button.CommandParameter>
+                    </Button>
+                    <TextBlock Text="Filter and Chart" FontSize="15" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="25,177,200,0">
+                    <Button Height="180" Command="{Binding DisplayList}" Template="{StaticResource recommenderCart}">
+                        <TextBlock Text="רשימת קניות" />
+                    </Button>
+                    <TextBlock Text="Recommended shopping list" FontSize="15" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

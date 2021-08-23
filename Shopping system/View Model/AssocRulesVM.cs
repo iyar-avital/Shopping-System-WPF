@@ -12,18 +12,19 @@ using BL;
 
 namespace Shopping_system.View_Model
 {
-    public class AssocRulesVM : BaseVM
-    {      
-        public AssocRulesModel currentModel { get; set; }
-        public ObservableCollection<RulesVM> rulesVMs { get; set; }
+    //public class AssocRulesVM : BaseVM
+    //{      
+    //    public AssocRulesModel currentModel { get; set; }
 
-        public AssocRulesVM()
-        {
-            currentModel = new AssocRulesModel();
-            rulesVMs = currentModel.associationRules.GetRuleVM();  
-        }
+    //    public ObservableCollection<RulesVM> rulesVMs { get; set; }
 
-       // public event PropertyChangedEventHandler PropertyChanged;   
+    //    public AssocRulesVM()
+    //    {
+    //        currentModel = new AssocRulesModel();
+    //        //rulesVMs = currentModel.associationRules.GetRuleVM();  
+    //    }
 
-    }
+    //   // public event PropertyChangedEventHandler PropertyChanged;   
+
+    //}
 }

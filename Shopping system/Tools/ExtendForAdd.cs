@@ -37,17 +37,11 @@ namespace Shopping_system.Tools
                 Result.Add(item.city + "-" + item.storeName);
             return new ObservableCollection<string>(Result.Distinct());
         }
+
         public static Product getProductByDetails(string productname)
         {
             IBL bl = new BlIMP();
             return bl.getProducts(p => p.productName == productname).FirstOrDefault();
-        }
-        public static QRcode getQRByDetails(int productID, string city, string storeName)
-        {
-            IBL bl = new BlIMP();
-            Store store = bl.getStores(s => s.city == city && s.storeName == storeName).FirstOrDefault();
-            QRcode qr = bl.getQRcodes(q => q.pid == productID && q.sid == store.sid).FirstOrDefault();
-            return qr;
         }
 
         public static QRcode getQRByDetails(int productID, string city, string storeName, double price)
@@ -55,8 +49,9 @@ namespace Shopping_system.Tools
             IBL bl = new BlIMP();
             Store store = bl.getStores(s => s.city == city && s.storeName == storeName).FirstOrDefault();
             List<QRcode> qrS = bl.getQRcodes(q => q.pid == productID && q.sid == store.sid);
-            if (qrS.Count == 1)
+            if (qrS.Count >= 1)
                 return qrS[0];
+
             int id = idGenerator.getqrID();
             QRcode qr = new QRcode(id.ToString(), productID, store.sid, 50, price);
             if (qrS.Count == 0)//this product doesnt have qrCode for this store yet 
